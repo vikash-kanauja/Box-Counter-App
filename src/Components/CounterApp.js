@@ -9,7 +9,7 @@ const CounterApp = () => {
         setCounterModal(prev =>
             [...prev,
             {
-                id: Date.now(),
+                id: new Date().getTime(),
                 value: 0,
                 interValId: null,
                 isCounterStart: false
@@ -65,6 +65,7 @@ const CounterApp = () => {
             </div>
             <div className="flex gap-8 justify-center flex-wrap py-8 px-4 ">
                 {counterModal.map((counter) => {
+                    console.log(counter.id)
                     return (
                         <CounterBox
                             key={counter.id}
