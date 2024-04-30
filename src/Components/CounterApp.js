@@ -11,7 +11,7 @@ const CounterApp = () => {
             {
                 id: new Date().getTime(),
                 value: 0,
-                interValId: null,
+                intervalRef: null,
                 isCounterStart: false
             }]);
     };
@@ -30,7 +30,7 @@ const CounterApp = () => {
         setCounterModal(
             counterModal.map((count) => {
                 if (count.id === counterValue.id) {
-                    return { ...count, isCounterStart: true, interValId: interValRef };
+                    return { ...count, isCounterStart: true, intervalRef: interValRef };
                 } else {
                     return count;
                 }
@@ -39,7 +39,7 @@ const CounterApp = () => {
 
     };
     const stopCounter = (counter) => {
-        clearInterval(counter.interValId);
+        clearInterval(counter.intervalRef);
         setCounterModal(
             counterModal.map((count) => {
                 if (count.id === counter.id) {
